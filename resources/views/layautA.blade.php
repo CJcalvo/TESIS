@@ -79,7 +79,6 @@
     </main>
 
     @yield('scrip')
-    <!-- Page specific javascripts-->
-    <script type="text/javascript">
+    
   </body>
 </html>

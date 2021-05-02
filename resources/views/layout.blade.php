@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="description" content="Prueva ECAES Universidad Popular del Cesar">
+    <meta name="description" content="Pruebas SaberPro Universidad Popular del Cesar">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#009688">
-    <title>Vali Admin</title>
+    <title>Validar Admin</title>
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
     <!-- Font-icon css-->
@@ -78,7 +78,7 @@
             <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>#4</a></li>
           </ul>
         </li>
-        <li><a class="app-menu__item" href="{{ route('preguntas') }}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Hacerca De</span></a></li>
+        <li><a class="app-menu__item" href="{{ route('preguntas') }}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Acerca De</span></a></li>
       </ul>
     </aside>
 
@@ -87,8 +87,6 @@
     </main>
 
     @yield('scrip')
-    <!-- Page specific javascripts-->
-    <script type="text/javascript" src="js/plugins/chart.js"></script>
-    <script type="text/javascript">
+
   </body>
 </html>

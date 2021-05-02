@@ -13,13 +13,13 @@
 </div>
 <div class="row">
     <div class="body-v1">
-        <h3 class="title-V">My Aplicativo</h3>
+        <h3 class="title-V">Mi Aplicativo</h3>
         <div class="v-cuerpo">
             <video src="videos/pruebaV.mp4" loop autoplay  controls></video>
         </div>
     </div>
     <div class="body-v1">
-        <h3 class="title-V">Que son las Ecaes</h3>
+        <h3 class="title-V">Que son las pruebas Saber Pro</h3>
         <div class="v-cuerpo">
             <video loop autoplay muted controls>
                 <source src="videos/pruebaV.mp4" type="video/mp4">

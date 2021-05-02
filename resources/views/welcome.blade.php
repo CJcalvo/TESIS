@@ -76,7 +76,7 @@
             @endif
 
             <div class="content">
-                <P>BIENBENIDO</P>
+                <P>BIENVENIDO</P>
             </div>
         </div>
     </body>

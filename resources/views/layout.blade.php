@@ -51,7 +51,7 @@
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="{{route('vusuario.create')}}"><i class="icon fa fa-circle-o"></i>Registros</a></li>
             <li><a class="treeview-item" href="{{route('vusuario.index')}}"><i class="icon fa fa-circle-o"></i>Consulta</a></li>
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>#3</a></li>
+            <li><a class="treeview-item" href="{{route('vuserProgran.index')}}"><i class="icon fa fa-circle-o"></i>Asignar Programa</a></li>
             <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>#4</a></li>
           </ul>
         </li>
@@ -65,8 +65,8 @@
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Pruebas</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Consultas</a></li>
-            <li><a class="treeview-item" href="{{ route('prueba') }}"><i class="icon fa fa-circle-o"></i>Asignar</a></li>
+            <li><a class="treeview-item" href="{{route('vprueva.consultaCompleta')}}"><i class="icon fa fa-circle-o"></i>Consultas</a></li>
+            <li><a class="treeview-item" href="{{route('ProgramaAsignatura.index')}}"><i class="icon fa fa-circle-o"></i>Asignar</a></li>
             <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>#3</a></li>
           </ul>
         </li>
@@ -87,8 +87,6 @@
     </main>
 
     @yield('scrip')
-    <!-- Page specific javascripts-->
-    <script type="text/javascript" src="js/plugins/chart.js"></script>
-    <script type="text/javascript">
+
   </body>
 </html>

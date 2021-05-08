@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#009688">
+
+
+
     <title>Vali Admin</title>
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
@@ -57,8 +60,8 @@
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Mis Pruebas</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Registro</a></li>
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Consulta</a></li>
+            <li><a class="treeview-item" href="{{ route('UserPrograma.obtener', Auth::user()->id)}}"><i class="icon fa fa-circle-o"></i>Registro</a></li>
+            <li><a class="treeview-item" href="{{ route('vprueva.consulta', Auth::user()->id)}}"><i class="icon fa fa-circle-o"></i>Consulta</a></li>
             <li><a class="treeview-item" href="{{ route('calendario') }}"><i class="icon fa fa-circle-o"></i>Calendario</a></li>
             <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>#4</a></li>
           </ul>
@@ -79,7 +82,6 @@
     </main>
 
     @yield('scrip')
-    <!-- Page specific javascripts-->
-    <script type="text/javascript">
+
   </body>
 </html>

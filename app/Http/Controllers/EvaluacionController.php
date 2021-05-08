@@ -15,9 +15,31 @@ class EvaluacionController extends Controller
     public function index()
     {
        $evaluaciones = Evaluacion::join('users', 'users.id', '=', 'evaluacion.users_id')
-       ->select('users.name as autor' , 'users.numero_Documento as nAutor', 'evaluacion.id','evaluacion.tiempoEstipulado', 'evaluacion.tiempoRealizado', 'evaluacion.users_id')
+       ->where('evaluacion.estado','Realizada')
+       ->select('evaluacion.id as id', 'users.name as autor' , 'users.numero_Documento as nAutor', 'evaluacion.descripcion', 'evaluacion.fecha', 'evaluacion.estado', 'evaluacion.Asignatura_eval', 'evaluacion.cant_Preg_Aig', 'evaluacion.tiempoEstipulado')
        ->get();
+       //return $evaluaciones;
        return view('Inicio/evaluacionC', compact('evaluaciones'));
+    }
+
+    public function consultaIndividualCompleta($id)
+    {
+       $evaluaciones = Evaluacion::where('users.id' , $id)
+       ->join('users', 'users.id', '=', 'evaluacion.users_id')
+       ->select('evaluacion.id as id', 'users.name as autor' , 'users.numero_Documento as nAutor', 'evaluacion.descripcion', 'evaluacion.fecha', 'evaluacion.estado', 'evaluacion.Asignatura_eval', 'evaluacion.cant_Preg_Aig', 'evaluacion.tiempoEstipulado')
+       ->get();
+       //return $evaluaciones;
+       return view('Inicio.mysPuebasCompletas', compact('evaluaciones'));
+    }
+
+
+     public function consultaCompleta()
+    {
+       $evaluaciones = Evaluacion::join('users', 'users.id', '=', 'evaluacion.users_id')
+       ->select('evaluacion.id as id', 'users.name as autor' , 'users.numero_Documento as nAutor', 'evaluacion.descripcion', 'evaluacion.fecha', 'evaluacion.estado', 'evaluacion.Asignatura_eval', 'evaluacion.cant_Preg_Aig', 'evaluacion.tiempoEstipulado')
+       ->get();
+      // return $evaluaciones;
+       return view('Inicio.pruebasConsulta', compact('evaluaciones'));
     }
 
     /**
@@ -38,7 +60,23 @@ class EvaluacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Evaluacion::create([
+            'descripcion' => request('descripcion'),
+            'fecha' => request('fecha'),
+            'cant_Preg_Aig' => request('cantPreguntas'),
+            'Asignatura_eval' => request('asignatura'),
+            'tiempoEstipulado' => request('time'),
+            'estado' => 'Pendiente',
+            'users_id' => request('id_U'),
+        ]);
+
+        $evaluaciones = Evaluacion::where('users.id' , request('id_U'))
+       ->join('users', 'users.id', '=', 'evaluacion.users_id')
+       ->select('evaluacion.id as id', 'users.name as autor' , 'users.numero_Documento as nAutor', 'evaluacion.descripcion', 'evaluacion.fecha', 'evaluacion.estado', 'evaluacion.Asignatura_eval', 'evaluacion.cant_Preg_Aig', 'evaluacion.tiempoEstipulado')
+       ->get();
+
+        //return $request;
+        return view('Inicio.mysPuebasCompletas', compact('evaluaciones'));
     }
 
     /**
@@ -49,10 +87,12 @@ class EvaluacionController extends Controller
      */
     public function show($id)
     {
-         $Meval = Evaluacion::join('users', 'users.id', '=', 'evaluacion.users_id')
-         ->select('users.name as autor' , 'users.numero_Documento as nAutor', 'evaluacion.id','evaluacion.tiempoEstipulado', 'evaluacion.tiempoRealizado', 'evaluacion.users_id')
-         ->where('users_id' , $id)
+         $Meval = Evaluacion::where('users_id' , $id)
+         ->where('evaluacion.estado','Realizada')
+         ->join('users', 'users.id', '=', 'evaluacion.users_id')
+         ->select('evaluacion.id as id', 'users.name as autor' , 'users.numero_Documento as nAutor', 'evaluacion.descripcion', 'evaluacion.fecha', 'evaluacion.estado', 'evaluacion.cant_Preg_Aig', 'evaluacion.Asignatura_eval', 'evaluacion.tiempoEstipulado')
          ->get();
+         //return $Meval;
          return view('Inicio/mysEvaluaciones', compact('Meval'));
     }
 

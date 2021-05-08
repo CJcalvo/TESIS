@@ -18,7 +18,7 @@ class CreateInformeTable extends Migration
 
             $table->id();
             $table->dateTime('fecha');
-            $table->integer('numero_Documento')->unique();
+            $table->integer('numero_Documento');
             $table->string('nombre_completo');
             $table->string('programa', 100);
 

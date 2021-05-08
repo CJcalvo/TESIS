@@ -98,6 +98,7 @@ class InformeController extends Controller
         ->join('detalle-informe-competencia-general', 'informe.id', '=', 'detalle-informe-competencia-general.informe_id')
         ->join('detalle-informe-competencia-especifica', 'informe.id', '=', 'detalle-informe-competencia-especifica.informe_id')
         ->get();
+        //return $informe;
         return view('Inicio/infoEspe', compact('informe'));
     }
 
@@ -107,7 +108,8 @@ class InformeController extends Controller
         ->join('detalle-informe-competencia-general', 'informe.id', '=', 'detalle-informe-competencia-general.informe_id')
         ->join('detalle-informe-competencia-especifica', 'informe.id', '=', 'detalle-informe-competencia-especifica.informe_id')
         ->get();
-        return  $informeP;
+        //return $informeP;
+        return view('Inicio/mysResultados', compact('informeP'));
     }
 
     /**

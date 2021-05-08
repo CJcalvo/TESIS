@@ -47,13 +47,23 @@ Route::post('/home', 'UserController@store')->name('vusuario.store');
 Route::put('/{usuario}/update', 'UserController@update')->name('vusuario.update');
 
 
+Route::get('/userPrograma', 'Users_ProgramaController@index')->name('vuserProgran.index');
+Route::post('/UP', 'Users_ProgramaController@store')->name('UserPrograma.store');
+
+Route::get('/UserPrograma/{id}', 'Users_ProgramaController@show')->name('UserPrograma.obtener');
 
 
+Route::get('/ProgramaAsignatura', 'Programa_AsignaturaController@index')->name('ProgramaAsignatura.index');
+Route::get('/ProgramaAsignatura/program/{id}', 'Programa_AsignaturaController@carga')->name('ProgramaAsignatura.carga');
+Route::get('/ProgramaAsignatura/{id}', 'Programa_AsignaturaController@show')->name('ProgramaAsignatura.obtener');
 
 
 
 
 Route::get('/evaluacionA', 'EvaluacionController@index')->name('vevaluacion.index');
+Route::get('/consultaPruebas ', 'EvaluacionController@consultaCompleta')->name('vprueva.consultaCompleta');
+Route::get('/pruebas/{id} ', 'EvaluacionController@consultaIndividualCompleta')->name('vprueva.consulta');
+Route::post('/evaluacion', 'EvaluacionController@store')->name('vevaluacion.store');
 Route::get('/evaluacionE/{id}', 'EvaluacionController@show')->name('vevaluacion.show');
 
 
@@ -68,16 +78,8 @@ Route::get('/evaluacionE/{id}', 'EvaluacionController@show')->name('vevaluacion.
 
 
 
-
-
-
-
-
-
-
-
 Route::get('/informe', 'InformeController@index')->name('vinforme.index');
-Route::get('/{id}', 'InformeController@show')->name('vinforme.show');
+Route::get('/evaluacionA/{id}', 'InformeController@show')->name('vinforme.show');
 Route::get('/{id}/MD', 'InformeController@showIndividual')->name('vinforme.showIndividual');
 
 

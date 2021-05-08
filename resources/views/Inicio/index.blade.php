@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layautA')
 
 @section('content')
 <div class="app-title">
@@ -14,51 +14,72 @@
 
   <div class="container">
     <div class="tile">
-      <h3 class="tile-title">Vertical Form</h3>
+      <h3 class="tile-title">Formulario</h3>
       <div class="tile-body">
-        <form>
+
+        <form method="POST" action="{{route('vevaluacion.store')}}">
+          @csrf
           <div class="form-group">
-            <label class="control-label">Name</label>
-            <input class="form-control" type="text" placeholder="Enter full name">
+            <label class="control-label">Id Usuario:</label>
+            <input class="form-control"   type="text" name="id_U" value="{{ Auth::user()->id }}"></input>
           </div>
+
           <div class="form-group">
-            <label class="control-label">Email</label>
-            <input class="form-control" type="email" placeholder="Enter email address">
+            <label class="control-label">Descripcion:</label>
+            <textarea class="form-control" type="text" rows="4" name="descripcion" placeholder="Ingese una Descripcion"></textarea>
           </div>
+
           <div class="form-group">
-            <label class="control-label">Address</label>
-            <textarea class="form-control" rows="4" placeholder="Enter your address"></textarea>
+            <label for="exampleSelect1">Asignaturas</label>
+            <select class="form-control" id="exampleSelect1" name="asignatura">
+               @foreach($Asignatura as $Asignatura)
+                  <option>{{$Asignatura->nombreA}}</option>
+               @endforeach
+                  <option >Todas</option>
+            </select>
           </div>
+
           <div class="form-group">
-            <label class="control-label">Gender</label>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="gender">Male
-              </label>
+            <label for="exampleSelect1">Preguntas por Asignaturas:</label>
+            <select class="form-control" id="exampleSelect1" name="cantPreguntas">
+              <option>10</option>
+              <option>15</option>
+              <option>20</option>
+              <option>25</option>
+              <option>30</option>
+            </select>
+          </div>
+
+           <div class="form-group">
+            <label for="exampleSelect1">Preguntas por Asignaturas:</label>
+            <input class="form-control" type="time" name="time">
+          </div>
+
+          <div class="form-group row">
+            <label for="example-date-input" class="col-2 col-form-label">Fecha:</label>
+            <div class="col-10">
+              <input class="form-control" name="fecha" type="date" id="example-date-input" min="{{ date('Y-m-d') }}">
             </div>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="gender">Female
-              </label>
-            </div>
           </div>
-          <div class="form-group">
-            <label class="control-label">Identity Proof</label>
-            <input class="form-control" type="file">
-          </div>
-          <div class="form-group">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox">I accept the terms and conditions
-              </label>
+
+           <div class="ftile-footer">
+            <div class="col-md-6 offset-md-4">
+                <button type="submit" class="btn btn-primary">Registrar</button>
             </div>
           </div>
         </form>
       </div>
-      <div class="tile-footer">
-        <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i>Register</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
-      </div>
+
+
     </div>
   </div>
+
+<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
+<!-- The javascript plugin to display page loading on top-->
+<script src="{{ asset('js/plugins/pace.min.js') }}"></script>
+
 @endsection
 

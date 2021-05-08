@@ -32,84 +32,80 @@
             <tbody>
                 @foreach($usuario as $usuario)
                 <tr>
-                        <td>{{$usuario->tipo_Documento}}</td>
-                        <td>{{$usuario->numero_Documento}}</td>
-                        <td>{{$usuario->name}}</td>
-                        <td>{{$usuario->cargo}}</td>
-                        <td>{{$usuario->email}}</td>
-                        <td>
+                  <td>{{$usuario->tipo_Documento}}</td>
+                  <td>{{$usuario->numero_Documento}}</td>
+                  <td>{{$usuario->name}}</td>
+                  <td>{{$usuario->cargo}}</td>
+                  <td>{{$usuario->email}}</td>
+                  <td>
 
-                           <button type="button" class="btn-edit" data-toggle="modal" data-target="#ventanaModal{{$usuario->id}}">EDIT</button>
+                    <button type="button" class="btn-edit" data-toggle="modal" data-target="#ventanaModal{{$usuario->id}}">EDIT</button>
 
-
-                             <div class="modal" id="ventanaModal{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body">
-
-                                    <form  method="POST" action="{{route('vusuario.update', $usuario)}}">
-                                        @csrf @method('PUT')
-                                        <div class="form-group row">
-                                            <label for="TD" class="col-md-4 col-form-label text-md-right">{{ __('TD') }}</label>
-                                            <input id="TD" type="text" class="form-control" name="TD" value="{{$usuario->tipo_Documento}}" required autocomplete="TD" autofocus>
-                                        </div>
-
-                                         <div class="form-group row">
-                                            <label for="ND" class="col-md-4 col-form-label text-md-right">{{ __('ND') }}</label>
-                                            <input id="ND" type="text" class="form-control" name="ND" value="{{$usuario->numero_Documento}}" required autocomplete="ND" autofocus>
-                                        </div>
-
-
-                                        <div class="form-group row">
-                                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-                                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{$usuario->name}}" required autocomplete="name" autofocus>
-
-                                                @error('name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="cargo" class="col-md-4 col-form-label text-md-right">{{ __('cargo') }}</label>
-                                            <input id="cargo" type="text" class="form-control" name="cargo" value="{{$usuario->cargo}}" required autocomplete="cargo" autofocus>
-                                        </div>
-
-
-                                        <div class="form-group row">
-                                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$usuario->email}}" required autocomplete="email">
-
-                                                @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                        </div>
-
-                                        <div class="form-group row mb-0">
-                                            <div class="col-md-6 offset-md-4">
-                                                <button type="submit" class="btn btn-primary">
-                                                    {{ __('Guardar Cambios') }}
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                    </form>
-
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                  </div>
-                                </div>
-                              </div>
+                      <div class="modal" id="ventanaModal{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
                             </div>
-                        </td>
+                            <div class="modal-body">
+
+                                <form  method="POST" action="{{route('vusuario.update', $usuario)}}">
+                                  @csrf @method('PUT')
+                                  <div class="form-group row">
+                                    <label class="control-label col-md-3">TD:</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control"  id="TD" type="text" name="TD" value="{{$usuario->tipo_Documento}}" required autocomplete="TD" autofocus placeholder="Tipo de Cedula">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label class="control-label col-md-3">ND:</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" id="ND" type="text" name="ND" value="{{$usuario->numero_Documento}}" required autocomplete="ND" autofocus placeholder="Enter full Cedula">
+                                    </div>
+                                  </div>
+                                   <div class="form-group row">
+                                    <label class="control-label col-md-3">Nombre:</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" id="name" type="text" @error('name') is-invalid @enderror name="name" value="{{$usuario->name}}" required autocomplete="name" autofocus placeholder="Enter full name">
+                                              @error('name')
+                                                  <span class="invalid-feedback" role="alert">
+                                                      <strong>{{ $message }}</strong>
+                                                  </span>
+                                              @enderror
+                                    </div>
+                                  </div>
+                                    <div class="form-group row">
+                                    <label class="control-label col-md-3">Cargo:</label>
+                                    <div class="col-md-8">
+                                      <input class="form-control" id="cargo" type="text" name="cargo" value="{{$usuario->cargo}}" required autocomplete="cargo" autofocus  placeholder="Enter full Cargo">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label class="control-label col-md-3">ND:</label>
+                                    <div class="col-md-8">
+                                       <input class="form-control col-md-8" id="email" type="email" @error('email') is-invalid @enderror name="email" value="{{$usuario->email}}" required autocomplete="email" placeholder="Enter email address">
+                                              @error('email')
+                                                  <span class="invalid-feedback" role="alert">
+                                                      <strong>{{ $message }}</strong>
+                                                  </span>
+                                              @enderror
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row mb-0">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Guardar Cambios') }}
+                                        </button>
+                                    </div>
+                                  </div>
+                                </form>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </td>
                 </tr>
                 @endforeach
             </tbody>
@@ -120,13 +116,16 @@
   </div>
 </div>
 
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+
+
+<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 <!-- The javascript plugin to display page loading on top-->
-<script src="js/plugins/pace.min.js"></script>
- <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+<script src="{{ asset('js/plugins/pace.min.js') }}"></script>
+ <script type="text/javascript" src="{{ asset('js/plugins/jquery.dataTables.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/plugins/dataTables.bootstrap.min.js') }}"></script>
 <script type="text/javascript">$('#sampleTable').DataTable();</script>
+
 @endsection

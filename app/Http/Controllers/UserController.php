@@ -74,17 +74,5 @@ class UserController extends Controller
           return redirect()->route('vusuario.index');
     }
 
-    /*
-    public function papu()
-    {
-      $data=[];
-      $sql="select count(*) from pregunta";
-      $request=DB::select($sql);
-      for ($i=0; $i < $sql ; $i++) {
-        $numero = random_int ( int 0 , int 1 ) : int;
-        $data[i] = ;
-      }
-      return  $request;
-    }
-    */
+
 }

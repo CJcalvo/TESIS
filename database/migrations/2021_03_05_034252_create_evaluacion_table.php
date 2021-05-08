@@ -17,8 +17,12 @@ class CreateEvaluacionTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->id();
-            $table->dateTime('tiempoEstipulado');
-            $table->dateTime('tiempoRealizado')->nullable();
+            $table->string('descripcion');
+            $table->date('fecha')->nullable();
+            $table->integer('cant_Preg_Aig')->nullable();
+            $table->string('Asignatura_eval')->nullable();
+            $table->time('tiempoEstipulado')->nullable();
+            $table->enum('estado', ['Pendiente','Realizada', 'Cancelada'])->nullable();
 
             $table->unsignedBigInteger('users_id');
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');

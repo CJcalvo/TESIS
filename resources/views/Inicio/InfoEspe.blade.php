@@ -117,18 +117,18 @@
 
 </div>
 
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 <!-- The javascript plugin to display page loading on top-->
-<script src="js/plugins/pace.min.js"></script>
+<script src="{{ asset('js/plugins/pace.min.js') }}"></script>
 
 <!-- Page specific javascripts-->
-<script type="text/javascript" src="js/plugins/chart.js"></script>
+<script type="text/javascript" src="{{ asset('js/plugins/chart.js')}}"></script>
 <script type="text/javascript">
   var data = {
-    labels: ["Escrita", "Cuantico", "Critica", "Ciudadana", "Ingles"],
+    labels: ["Escrita", "Cuantico", "Critica", "Ciudadana", "Ingles", "Esp1", "Esp2", "Esp3"],
     datasets: [
       {
         label: "My First dataset",
@@ -138,7 +138,7 @@
         pointStrokeColor: "#fff",
         pointHighlightFill: "#fff",
         pointHighlightStroke: "rgba(220,220,220,1)",
-        data: [65, 59, 80, 81, 56]
+        data: [65, 59, 80, 81, 56, 40, 30, 20]
       },
       {
         label: "My Second dataset",
@@ -148,7 +148,7 @@
         pointStrokeColor: "#fff",
         pointHighlightFill: "#fff",
         pointHighlightStroke: "rgba(151,187,205,1)",
-        data: [28, 48, 40, 19, 86]
+        data: [28, 48, 40, 19, 86, 40, 30, 20]
       }
     ]
   };

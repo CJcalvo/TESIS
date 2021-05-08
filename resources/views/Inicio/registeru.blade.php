@@ -72,21 +72,15 @@
                 <button type="submit" class="btn btn-primary">Registrar</button>
             </div>
         </div>
-        <div class="form-group row mb-0">
-            <div class="col-md-6 offset-md-4">
-                <button type="button" class="btn btn-primary">Cancel</button>
-            </div>
-        </div>
       </form>
     </div>
   </div>
 </div>
-
-
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 <!-- The javascript plugin to display page loading on top-->
-<script src="js/plugins/pace.min.js"></script>
+<script src="{{ asset('js/plugins/pace.min.js') }}"></script>
+
 @endsection

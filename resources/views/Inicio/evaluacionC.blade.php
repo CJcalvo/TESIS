@@ -21,12 +21,15 @@
           <table class="table table-hover table-bordered" id="sampleTable">
             <thead>
                 <tr>
-                  <td>Nombre</td>
-                  <td>Documento</td>
-                  <td>Tdentificador</td>
-                  <td>TE</td>
-                  <td>TR</td>
-                  <td>Detallar</td>
+                  <th>Nombre</th>
+                  <th>Documento</th>
+                  <th>Descripcion</th>
+                  <th>fecha</th>
+                  <th>Estado</th>
+                  <th>Pre x Asi</th>
+                  <th>Asig. evaluadas</th>
+                  <th>Tiempo</th>
+                  <th>Detallar</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,9 +37,12 @@
                 <tr>
                     <td>{{$evaluaciones->autor}}</td>
                     <td>{{$evaluaciones->nAutor}}</td>
-                     <td>{{$evaluaciones->id}}</td>
+                    <td>{{$evaluaciones->descripcion}}</td>
+                    <td>{{$evaluaciones->fecha}}</td>
+                    <td>{{$evaluaciones->estado}}</td>
+                    <td>{{$evaluaciones->cant_Preg_Aig}}</td>
+                    <td>{{$evaluaciones->Asignatura_eval}}</td>
                     <td>{{$evaluaciones->tiempoEstipulado}}</td>
-                    <td>{{$evaluaciones->tiempoRealizado}}</td>
                     <td>
                         <a href="{{route('vinforme.show', $evaluaciones)}}">dtl</a>
                     </td>
@@ -51,13 +57,19 @@
 </div>
 
 
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+
+
+
+
+
+
+<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 <!-- The javascript plugin to display page loading on top-->
-<script src="js/plugins/pace.min.js"></script>
- <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+<script src="{{ asset('js/plugins/pace.min.js') }}"></script>
+ <script type="text/javascript" src="{{ asset('js/plugins/jquery.dataTables.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/plugins/dataTables.bootstrap.min.js') }}"></script>
 <script type="text/javascript">$('#sampleTable').DataTable();</script>
 @endsection

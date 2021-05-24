@@ -16,7 +16,7 @@
     </section>
     <section class="login-content">
       <div class="logo">
-        <h1>ECAES</h1>
+        <h1>SABER PRO</h1>
       </div>
       <div class="login-box">
 

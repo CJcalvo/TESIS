@@ -83,28 +83,28 @@ Route::get('/pru', 'UserController@papu');
 
 
 //rutas de sandra
-route::resource('competencia', App\Http\Controllers\CompetenciaController::class)
+route::resource('competencia', CompetenciaController::class)
         ->parameters(['competencia' => 'competencia'])
         ->names('competencia');
 
-route::resource('asignatura', App\Http\Controllers\AsignaturaController::class)
+route::resource('asignatura', AsignaturaController::class)
         ->parameters(['asignatura' => 'asignatura'])
         ->names('asignatura');
 
-route::resource('facultad', App\Http\Controllers\FacultadController::class)
+route::resource('facultad', FacultadController::class)
         ->parameters(['facultad' => 'facultad'])
         ->names('facultad');
 
-route::resource('programa', App\Http\Controllers\ProgramaController::class)
+route::resource('programa', ProgramaController::class)
         ->parameters(['programa' => 'programa'])
         ->names('programa');
 
-route::resource('pregunta', App\Http\Controllers\PreguntaController::class)
+route::resource('pregunta', PreguntaController::class)
        ->parameters(['pregunta' => 'pregunta'])
        ->names('pregunta');
-       Route::get('pregunta/upload', [App\Http\Controllers\PreguntaController::class, 'upload'])->name('pregunta.upload');
-       Route::post('/pregunta/import-file', [App\Http\Controllers\PreguntaController::class, 'importFile'])->name('pregunta.importFile');
+Route::get('pregunta/upload', [App\Http\Controllers\PreguntaController::class, 'upload'])->name('pregunta.upload');
+Route::post('/pregunta/import-file', [App\Http\Controllers\PreguntaController::class, 'importFile'])->name('pregunta.importFile');
 
-route::resource('tema', App\Http\Controllers\TemaController::class)
-       ->parameters(['tema' => 'tema'])
-       ->names('tema');
+// route::resource('tema', TemaController::class)
+//        ->parameters(['tema' => 'tema'])
+//        ->names('tema');

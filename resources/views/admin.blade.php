@@ -10,7 +10,7 @@
     <nav class="nav-sidebar">
         <div class="container">
             <div class="sidebar">
-                <div class="text">ECAES</div>
+                <div class="text">SABER PRO</div>
                 <div class="sidebar-menu">
                      <ul>
                         <li><a href="#">Home</a></li>

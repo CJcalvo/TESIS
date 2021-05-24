@@ -1,7 +1,9 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class TodosSeeder extends Seeder
@@ -14,20 +16,18 @@ class TodosSeeder extends Seeder
     public function run()
     {
     	$useradmin=User::create([
-    		'TD' => 'CC',
-            'ND' => '1079940501',
-            'name' => 'CARLOS JOSE CLAVO',
-            'codigo' => 'adm1',
-            'cargo' => 'yes',
+    		    'tipo_Documento' => 'CC',
+            'numero_Documento' => '1079940501',
+            'name' => 'carlos calvo',
+            'cargo' => 'Administrador',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin'),
     	]);
     	$user1=User::create([
-    		'TD' => 'CC',
-            'ND' => '1079940502',
-            'name' => 'JOSE CARLOS CALVO',
-            'codigo' => 'casa1',
-            'cargo' => 'no',
+    		    'tipo_Documento' => 'CC',
+            'numero_Documento' => '49730017',
+            'name' => 'marcos witt',
+            'cargo' => 'Estudiante',
             'email' => 'marcos@gmail.com',
             'password' => Hash::make('marcos'),
     	]);

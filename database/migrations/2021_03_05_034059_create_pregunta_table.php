@@ -19,8 +19,8 @@ class CreatePreguntaTable extends Migration
             $table->id();
             $table->text('enunciado');
             $table->text('respuesta_correcta');
-		    $table->binary('imagen_enunciado')->nullable();
-            $table->string('propiedad_pregunta');
+		        $table->binary('imagen_enunciado')->nullable();
+            $table->string('propietario_pregunta');
 
             $table->unsignedBigInteger('asignatura_id');
             $table->foreign('asignatura_id')->references('id')->on('asignatura')->onDelete('cascade');

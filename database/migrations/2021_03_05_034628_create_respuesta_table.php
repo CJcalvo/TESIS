@@ -17,10 +17,10 @@ class CreateRespuestaTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->id();
-            $table->text('respuesta_1');
-    		$table->text('respuesta_2');
-    		$table->text('respuesta_3');
-    		$table->text('respuesta_4');
+            $table->text('respuesta_A');
+        		$table->text('respuesta_B');
+        		$table->text('respuesta_C');
+        		$table->text('respuesta_D');
 
             $table->unsignedBigInteger('pregunta_id');
             $table->foreign('pregunta_id')->references('id')->on('pregunta')->onDelete('cascade');
